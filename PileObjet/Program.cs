@@ -1,9 +1,5 @@
 ﻿using System;
 using Utilitaires;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MesOutils
 {
@@ -20,11 +16,13 @@ namespace MesOutils
 
                 TesteEmpilerDepiler(5);
                 int nbSaisi = UtilitaireConsole.SaisirNb();
-                Console.WriteLine("Nombre saisi : "+nbSaisi);
+                Console.WriteLine("Nombre saisi : " + nbSaisi);
                 nbSaisi = UtilitaireConsole.SaisirNb(10);
                 Console.WriteLine("Nombre saisi : " + nbSaisi);
                 nbSaisi = UtilitaireConsole.SaisirNb(10, 30);
                 Console.WriteLine("Nombre saisi : " + nbSaisi);
+
+                //TestConversion();
             }
             catch (Exception ex)
             {
@@ -87,6 +85,45 @@ namespace MesOutils
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        static string Convertir(int pNbElements, int pNbAConvertir, Int32 pNewBase)
+        {
+            Pile unePile = new Pile(pNbElements);
+
+            int quot = pNbAConvertir;
+            string str = "";
+            while (quot != 0)
+            {
+                unePile.Empiler(quot % pNewBase);
+                quot = quot / pNewBase;
+            }
+            while (!unePile.PileVide())
+            {
+                //str = str + Convert.ToChar(Depiler(ref unePile2));
+                int retour = (int)unePile.Depiler();
+                if (retour < 10)
+                {
+                    str += Convert.ToChar(48 + retour);
+                }
+                else
+                {
+                    str += Convert.ToChar(55 + retour);
+                }
+            }
+
+            return str;
+        }
+
+        static void TestConversion()
+        {
+            Console.Write("Entrez le nombre d'éléments du talbeau : ");
+            int nbElem = Int32.Parse(Console.ReadLine());
+            Console.Write("Entrez le nombre à convertir : ");
+            int nbConvert = Int32.Parse(Console.ReadLine());
+            Console.Write("Entrez la nouvelle base entre 2 et 16 : ");
+            int nbBase = Int32.Parse(Console.ReadLine());
+            Console.WriteLine(Convertir(nbElem, nbConvert, nbBase));
         }
     }
 }
