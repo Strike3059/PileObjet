@@ -1,4 +1,5 @@
 ﻿using System;
+using Utilitaires;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,14 @@ namespace MesOutils
                 //TestEmpiler(2);
 
                 TesteEmpilerDepiler(5);
-            } catch(Exception ex)
+                int nbSaisi = UtilitaireConsole.SaisirNb();
+                Console.WriteLine("Nombre saisi : "+nbSaisi);
+                nbSaisi = UtilitaireConsole.SaisirNb(10);
+                Console.WriteLine("Nombre saisi : " + nbSaisi);
+                nbSaisi = UtilitaireConsole.SaisirNb(10, 30);
+                Console.WriteLine("Nombre saisi : " + nbSaisi);
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
