@@ -8,12 +8,11 @@ namespace MesOutils
     /// On ajoute après le dernier élément ajouté
     /// On retire toujours le dernier élément ajouté
     /// </summary>
-    class Pile
+    class Pile<T>
     {
         /// <summary>
         /// Nombre maximum d'élements de la Pile
         /// </summary>
-        private int nbMaxElt;
 
         /// <summary>
         ///  Liste contenant les éléments de la Pile
@@ -31,22 +30,11 @@ namespace MesOutils
             return this.elements.Count <= 0;
         }
 
-        public bool PilePleine()
+        public void Empiler(T val)
         {
-            return this.elements.Count >= this.nbMaxElt;
+            this.elements.Add(val);
         }
 
-        public void Empiler(int val)
-        {
-            if (!PilePleine())
-            {
-                this.elements.Add(val);
-            }
-            else
-            {
-                throw new Exception("Pile pleine, impossible d'empiler un élément");
-            }
-        }
         public int Depiler()
         {
 
@@ -58,5 +46,7 @@ namespace MesOutils
             this.elements.RemoveAt(this.elements.Count - 1);
             return val;
         }
+
+        public int Count { get=> this.elements.Count; }
     }
 }
