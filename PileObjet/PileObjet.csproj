@@ -43,10 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pile.cs" />
+    <Compile Include="Outils\Pile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UtilitaireConsole.cs" />
+    <Compile Include="Tests\TestPile.cs" />
+    <Compile Include="Utilitaires\UtilitaireConsole.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
