@@ -91,5 +91,16 @@ namespace Utilitaires
 
             return str;
         }
+
+        public static string InversePhraseMieux(String phrase)
+        {
+            String Retourne = "";
+            var tab = phrase.Split(' ');
+            foreach (string mot in tab)
+            {
+                Retourne = " "+mot + Retourne;
+            }
+            return Retourne;
+        }
     }
 }

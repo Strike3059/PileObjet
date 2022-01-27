@@ -1,4 +1,5 @@
 ﻿using MesOutils;
+using PileObjet.Utilitaires;
 using System;
 using Utilitaires;
 
@@ -81,6 +82,40 @@ namespace PileObjet.Tests
             Console.Write("Entrez la nouvelle base entre 2 et 16 : ");
             int nbBase = Convert.ToInt32(Console.ReadLine());
             TestConversion(nbConvert, nbBase);
+        }
+        public static string InversePhrase(String phrase)
+        {
+            Pile<string> maPile = new Pile<string>();
+            var tab = phrase.Split(' ');
+            foreach (string mot in tab)
+            {
+                maPile.Empiler(mot);
+            }
+            String message = "";
+            while (!maPile.PileVide())
+            {
+                message += " " + maPile.Depiler();
+            }
+            return message;
+        }
+
+        public static void TesteInversePhrase()
+        {
+            try
+            {
+                String phrase = UtilitaireAPI.RecupereLoremIpsum(3);
+                Console.WriteLine(phrase);
+                String phraseInversee = InversePhrase(phrase);
+                Console.WriteLine("\n ------ Version Pile ------ ");
+                Console.WriteLine(phraseInversee);
+                //phraseInversee = InversePhraseMieux(phrase);
+                Console.WriteLine("\n ------ Version Améliorée ------ ");
+                Console.WriteLine(phraseInversee);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
