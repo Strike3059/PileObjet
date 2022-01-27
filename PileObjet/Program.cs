@@ -1,6 +1,4 @@
 ﻿using System;
-using Utilitaires;
-using System.CodeDom;
 
 namespace MesOutils
 {
@@ -15,13 +13,13 @@ namespace MesOutils
                 //TestEmpiler(5);
                 //TestEmpiler(2);
 
-                TesteEmpilerDepiler(5);
-                int nbSaisi = UtilitaireConsole.SaisirNb();
-                Console.WriteLine("Nombre saisi : " + nbSaisi);
-                nbSaisi = UtilitaireConsole.SaisirNb(10);
-                Console.WriteLine("Nombre saisi : " + nbSaisi);
-                nbSaisi = UtilitaireConsole.SaisirNb(10, 30);
-                Console.WriteLine("Nombre saisi : " + nbSaisi);
+                //TesteEmpilerDepiler();
+                //int nbSaisi = UtilitaireConsole.SaisirNb();
+                //Console.WriteLine("Nombre saisi : " + nbSaisi);
+                //nbSaisi = UtilitaireConsole.SaisirNb(10);
+                //Console.WriteLine("Nombre saisi : " + nbSaisi);
+                //nbSaisi = UtilitaireConsole.SaisirNb(10, 30);
+                //Console.WriteLine("Nombre saisi : " + nbSaisi);
 
                 //TestConversion();
             }
@@ -33,9 +31,9 @@ namespace MesOutils
             Console.ReadKey();
         }
 
-        static void TestPileVidePleine(int nbElements)
+        static void TestPileVidePleine()
         {
-            Pile unePile = new Pile(nbElements);
+            Pile<int> unePile = new Pile<int>();
             if (unePile.PileVide())
             {
                 Console.WriteLine("La pile est vide");
@@ -45,30 +43,30 @@ namespace MesOutils
                 Console.WriteLine("La pile n'est pas vide");
             }
 
-            if (unePile.PilePleine())
-            {
-                Console.WriteLine("La pile est pleine");
-            }
-            else
-            {
-                Console.WriteLine("La pile n'est pas pleine");
-            }
+            //if (unePile.PilePleine())
+            //{
+            //    Console.WriteLine("La pile est pleine");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("La pile n'est pas pleine");
+            //}
 
         }
 
-        static void TestEmpiler(int nbElements)
+        static void TestEmpiler()
         {
-            Pile unePile = new Pile(nbElements);
+            Pile<int> unePile = new Pile<int>();
             unePile.Empiler(2);
             unePile.Empiler(14);
             unePile.Empiler(6);
         }
 
-        static void TesteEmpilerDepiler(int nbElements)
+        static void TesteEmpilerDepiler()
         {
             try
             {
-                Pile unePile = new Pile(nbElements);
+                Pile<int> unePile = new Pile<int>();
                 unePile.Empiler(2);
                 unePile.Empiler(22);
                 unePile.Empiler(14);
@@ -88,9 +86,9 @@ namespace MesOutils
             }
         }
 
-        static string Convertir(int pNbElements, int pNbAConvertir, Int32 pNewBase)
+        static string Convertir(int pNbAConvertir, Int32 pNewBase)
         {
-            Pile unePile = new Pile(pNbElements);
+            Pile<int> unePile = new Pile<int>();
 
             int quot = pNbAConvertir;
             string str = "";
@@ -124,7 +122,7 @@ namespace MesOutils
             int nbConvert = Int32.Parse(Console.ReadLine());
             Console.Write("Entrez la nouvelle base entre 2 et 16 : ");
             int nbBase = Int32.Parse(Console.ReadLine());
-            Console.WriteLine(Convertir(nbElem, nbConvert, nbBase));
+            Console.WriteLine(Convertir(nbConvert, nbBase));
         }
     }
 }

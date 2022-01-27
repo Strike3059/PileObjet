@@ -11,18 +11,13 @@ namespace MesOutils
     class Pile<T>
     {
         /// <summary>
-        /// Nombre maximum d'élements de la Pile
-        /// </summary>
-
-        /// <summary>
         ///  Liste contenant les éléments de la Pile
         /// </summary>
-        private List<int> elements;
+        private List<T> elements;
 
-        public Pile(int nbMaxElt)
+        public Pile()
         {
-            this.nbMaxElt = nbMaxElt;
-            this.elements = new List<int>();
+            this.elements = new List<T>();
         }
 
         public bool PileVide()
@@ -30,23 +25,22 @@ namespace MesOutils
             return this.elements.Count <= 0;
         }
 
-        public void Empiler(T val)
+        public void Empiler(T valeur)
         {
-            this.elements.Add(val);
+            this.elements.Add(valeur);
         }
 
-        public int Depiler()
+        public T Depiler()
         {
-
             if (PileVide())
             {
                 throw new Exception("Impossible de dépiler, pile vide");
             }
-            int val = this.elements[this.elements.Count - 1];
+            T valeur = this.elements[this.elements.Count - 1];
             this.elements.RemoveAt(this.elements.Count - 1);
-            return val;
+            return valeur;
         }
 
-        public int Count { get=> this.elements.Count; }
+        public int Count { get => this.elements.Count; }
     }
 }
