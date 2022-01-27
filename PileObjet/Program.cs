@@ -1,5 +1,6 @@
 ﻿using System;
 using Utilitaires;
+using System.CodeDom;
 
 namespace MesOutils
 {
