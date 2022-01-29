@@ -19,15 +19,6 @@ namespace PileObjet.Tests
                 Console.WriteLine("La pile n'est pas vide");
             }
 
-            //if (unePile.PilePleine())
-            //{
-            //    Console.WriteLine("La pile est pleine");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("La pile n'est pas pleine");
-            //}
-
         }
 
         public static void TestEmpiler()
